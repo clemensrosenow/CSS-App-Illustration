@@ -1,0 +1,335 @@
+/* || Variable declaration */
+
+$paleViolet: hsl(276, 100%, 81%);
+$moderateViolet: hsl(276, 55%, 52%);
+$gradientViolet: hsl(264, 100%, 61%);
+
+$lightMagenta: hsl(289, 100%, 72%);
+$gradientMagenta: hsl(293, 100%, 63%);
+
+$white: hsl(1, 0%, 100%);
+$lightViolet: hsl(270, 20%, 96%);
+$inboxViolet: hsl(270, 47%, 93%);
+$grayishBlue: hsl(206, 6%, 79%);
+$grayishViolet: hsl(270, 7%, 64%);
+$desaturatedViolet: hsl(271, 15%, 43%);
+$darkViolet: hsl(271, 36%, 24%);
+
+/* || Mixins */
+@mixin displayFlex($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin gradientBackground($direction) {
+  background: linear-gradient($direction, $gradientMagenta, $gradientViolet);
+}
+
+/* || General styles*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  @include displayFlex(row);
+  overflow-x: hidden;
+}
+
+h1 {
+  color: $darkViolet;
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+::selection {
+  color: white;
+  background-color: $darkViolet;
+}
+
+/* || Background shapes on the left and right */
+body {
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 66rem;
+    height: 85vh;
+    z-index: -1;
+  }
+
+  &::before {
+    @include gradientBackground(to bottom);
+    left: calc(
+      (100vw - 47rem - 72ch) / 2 - 52.4rem
+    ); /* aligns the end of the background with the top phone cutout */
+    top: 0;
+    border-radius: 0 0 50vw 50vw;
+  }
+
+  &::after {
+    background-color: $lightViolet;
+    right: calc(15% - 51rem);
+    bottom: 0;
+    border-radius: 50vw 50vw 0 0;
+  }
+}
+
+/* || Phone with Chat */
+.phone-view {
+  width: 30rem;
+  padding: 1rem;
+  border-radius: 25px;
+  background-color: $white;
+  margin-left: 7rem;
+  box-shadow: 2rem 2rem 5rem 5px rgba(0, 0, 0, 0.13);
+  * {
+    user-select: none;
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  .profile-header {
+    position: relative;
+    height: 7rem;
+    padding: 1rem;
+    padding-top: 3rem;
+    @include displayFlex(row);
+    justify-content: space-between;
+    @include gradientBackground(to right);
+    border-radius: 20px 20px 10px 10px;
+
+    .left-side {
+      @include displayFlex(row);
+    }
+
+    .profile-picture {
+      border-radius: 50%;
+      height: 2.5rem;
+      border: 1px solid $lightViolet;
+      margin: 0.8rem;
+    }
+
+    .options {
+      height: 1.8rem;
+    }
+
+    .information {
+      @include displayFlex(column);
+      align-items: flex-start;
+
+      .name {
+        color: $lightViolet;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+      }
+
+      .status {
+        font-size: 0.9rem;
+        color: $paleViolet;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 60%;
+      height: 2rem;
+      top: 0;
+      left: 20%;
+      background-color: $white;
+      border-radius: 0 0 10rem 10rem;
+    }
+  }
+
+  .chat-area {
+    background-color: $lightViolet;
+    padding: 1.5rem 1rem 0.5rem;
+    border-radius: 0 0 2rem 2rem;
+    @include displayFlex(column);
+
+    > * {
+      margin-bottom: 1rem;
+    }
+
+    .inbox {
+      align-self: flex-start;
+    }
+    .sent {
+      align-self: flex-end;
+    }
+    .last {
+      margin-bottom: 2rem;
+    }
+
+    .message {
+      padding: 1rem;
+      width: fit-content;
+      max-width: 56%;
+      font-size: 0.9rem;
+      border-radius: 10px;
+    }
+    .message.inbox {
+      color: $moderateViolet;
+      background-color: $inboxViolet;
+    }
+    .message.sent {
+      background-color: $white;
+      color: $darkViolet;
+      box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.048);
+    }
+
+    .images {
+      @include displayFlex(row);
+      img {
+        width: 4.5rem;
+        margin-left: 1rem;
+        border-radius: 10px;
+      }
+    }
+
+    .proposal {
+      width: 80%;
+      padding: 1rem;
+      @include displayFlex(row);
+      justify-content: space-between;
+      @include gradientBackground(to right);
+      border-radius: 15px 15px 15px 5px;
+      .details {
+        @include displayFlex(row);
+        justify-content: flex-end;
+      }
+
+      .offer {
+        font-size: 1rem;
+        color: $lightViolet;
+      }
+      .price {
+        color: $white;
+        font-size: 1.5rem;
+        margin-right: 1rem;
+      }
+      .check {
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: transparent;
+        border-radius: 50%;
+        border: 1px solid $lightViolet;
+        margin-right: 1rem;
+      }
+    }
+
+    form {
+      @include displayFlex(row);
+      position: relative;
+      width: 100%;
+
+      input#message-text {
+        width: 100%;
+        height: 4rem;
+        color: $grayishBlue;
+        border: none;
+        border-radius: 50px;
+        padding: 1rem;
+        font-size: 1.2rem;
+        padding-left: 2.5rem;
+      }
+
+      button#submit-btn {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        color: $white;
+        background-color: $desaturatedViolet;
+        border: none;
+        border-radius: 50%;
+        margin-bottom: 0;
+        right: 0.5rem;
+        @include displayFlex(row);
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+/* || Copywriting explaination */
+.main-text {
+  width: 72ch;
+  margin-left: 10rem;
+
+  p {
+    color: $grayishViolet;
+    margin-top: 2rem;
+    line-height: 2;
+  }
+}
+
+/* || Author and Github link */
+.attribution {
+  position: absolute;
+  margin: auto;
+  bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+/* || Adjustments for mobile-friendly design */
+@media screen and (max-width: 900px) {
+  body {
+    flex-direction: column;
+    padding: 6rem 3rem;
+
+    &::before {
+      width: 100vw;
+      left: -50%;
+      height: 50vh;
+    }
+    &::after {
+      height: 30vh;
+      width: 100vw;
+      right: -60%;
+    }
+  }
+
+  .main-text {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 4rem;
+    font-size: 1.6rem;
+    width: 45ch;
+    h1 {
+      font-size: 4rem;
+    }
+  }
+  .phone-view {
+    margin: 0;
+    transform: scale(0.9);
+  }
+  .attribution {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-text {
+    width: auto;
+  }
+  body::after {
+    display: none;
+  }
+}

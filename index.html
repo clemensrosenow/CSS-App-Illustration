@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Clemens Rosenow" />
+    <meta
+      name="description"
+      content="Advanced CSS Design of a Dog-Care Connection Chat-App"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/icons/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Chat-App CSS Design Clemens Rosenow</title>
+  </head>
+
+  <body>
+    <div class="phone-view">
+      <div class="profile-header">
+        <div class="left-side">
+          <img src="./images/icons/back_arrow.png" alt="Go back">
+          <img src="./images/avatar.jpg" alt="" class="profile-picture"/>
+          <div class="information">
+            <h4 class="name">Samuel Green</h4>
+            <p class="status">Available to Walk</p>
+          </div>
+        </div>
+        <img src="./images/icons/three_vertical_dots.png" alt="Options" class="options">
+      </div>
+      <div class="chat-area">
+        <p class="message inbox">That sounds great. I’d be happy with that.</p>
+        <p class="message inbox last">
+          Could you send over some pictures of your dog, please?
+        </p>
+
+        <div class="images sent">
+          <img
+            src="./images/dog-image-1.jpg"
+            alt="Happy Dog"
+            draggable="false"
+          />
+          <img
+            src="./images/dog-image-2.jpg"
+            alt="Dog at the beach"
+            draggable="false"
+          />
+          <img
+            src="./images/dog-image-3.jpg"
+            alt="Dog with stick"
+            draggable="false"
+          />
+        </div>
+
+        <p class="message sent">Here are a few pictures. She’s a happy girl!</p>
+        <p class="message sent last">Can you make it?</p>
+
+        <p class="message inbox">
+          She looks so happy! The time we discussed works. How long shall I take
+          her out for?
+        </p>
+
+        <div class="proposal inbox">
+          <div class="details">
+            <div class="check"></div>
+            <p class="offer">30 minute walk</p>
+          </div>
+          <h3 class="price">$29</h3>
+        </div>
+
+        <div class="proposal inbox">
+          <div class="details">
+            <div class="check"></div>
+            <p class="offer">1 hour walk</p>
+          </div>
+          <h3 class="price">$49</h3>
+        </div>
+        <form>
+          <input
+            type="text"
+            name=""
+            placeholder="Type a message..."
+            id="message-text"
+            disabled="disabled"
+          />
+          <button id="submit-btn" disabled="disabled">
+            <img src="./images/icons/forward_arrow.png" alt="Submit-Icon" >
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="main-text">
+      <h1>Simple booking</h1>
+
+      <p>
+        Stay in touch with our dog walkers through the chat interface. This
+        makes it easy to discuss arrangements and make bookings. Once the walk
+        has been completed you can rate your walker and book again all through
+        the chat.
+      </p>
+    </div>
+
+    <p class="attribution">
+      Coded by <a href="#">Clemens Rosenow</a>. View
+      <a href="#">Source Code</a>.
+    </p>
+  </body>
+</html>

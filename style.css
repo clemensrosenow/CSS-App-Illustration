@@ -1,0 +1,463 @@
+/* || Variable declaration */
+/* || Mixins */
+/* || General styles*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow-x: hidden;
+}
+
+h1 {
+  color: #3e2753;
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+::-moz-selection {
+  color: white;
+  background-color: #3e2753;
+}
+
+::selection {
+  color: white;
+  background-color: #3e2753;
+}
+
+/* || Background shapes on the left and right */
+body::before, body::after {
+  content: "";
+  position: absolute;
+  width: 66rem;
+  height: 85vh;
+  z-index: -1;
+}
+
+body::before {
+  background: -webkit-gradient(linear, left top, left bottom, from(#e942ff), to(#8838ff));
+  background: linear-gradient(to bottom, #e942ff, #8838ff);
+  left: calc( (100vw - 47rem - 72ch) / 2 - 52.4rem);
+  /* aligns the end of the background with the top phone cutout */
+  top: 0;
+  border-radius: 0 0 50vw 50vw;
+}
+
+body::after {
+  background-color: #f5f3f7;
+  right: calc(15% - 51rem);
+  bottom: 0;
+  border-radius: 50vw 50vw 0 0;
+}
+
+/* || Phone with Chat */
+.phone-view {
+  width: 30rem;
+  padding: 1rem;
+  border-radius: 25px;
+  background-color: white;
+  margin-left: 7rem;
+  -webkit-box-shadow: 2rem 2rem 5rem 5px rgba(0, 0, 0, 0.13);
+          box-shadow: 2rem 2rem 5rem 5px rgba(0, 0, 0, 0.13);
+}
+
+.phone-view * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.phone-view *:hover {
+  cursor: default;
+}
+
+.phone-view .profile-header {
+  position: relative;
+  height: 7rem;
+  padding: 1rem;
+  padding-top: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: -webkit-gradient(linear, left top, right top, from(#e942ff), to(#8838ff));
+  background: linear-gradient(to right, #e942ff, #8838ff);
+  border-radius: 20px 20px 10px 10px;
+}
+
+.phone-view .profile-header .left-side {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.phone-view .profile-header .profile-picture {
+  border-radius: 50%;
+  height: 2.5rem;
+  border: 1px solid #f5f3f7;
+  margin: 0.8rem;
+}
+
+.phone-view .profile-header .options {
+  height: 1.8rem;
+}
+
+.phone-view .profile-header .information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.phone-view .profile-header .information .name {
+  color: #f5f3f7;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.phone-view .profile-header .information .status {
+  font-size: 0.9rem;
+  color: #d89eff;
+}
+
+.phone-view .profile-header::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 2rem;
+  top: 0;
+  left: 20%;
+  background-color: white;
+  border-radius: 0 0 10rem 10rem;
+}
+
+.phone-view .chat-area {
+  background-color: #f5f3f7;
+  padding: 1.5rem 1rem 0.5rem;
+  border-radius: 0 0 2rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.phone-view .chat-area > * {
+  margin-bottom: 1rem;
+}
+
+.phone-view .chat-area .inbox {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.phone-view .chat-area .sent {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.phone-view .chat-area .last {
+  margin-bottom: 2rem;
+}
+
+.phone-view .chat-area .message {
+  padding: 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 56%;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+
+.phone-view .chat-area .message.inbox {
+  color: #9241c8;
+  background-color: #ede5f6;
+}
+
+.phone-view .chat-area .message.sent {
+  background-color: white;
+  color: #3e2753;
+  -webkit-box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.048);
+          box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.048);
+}
+
+.phone-view .chat-area .images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.phone-view .chat-area .images img {
+  width: 4.5rem;
+  margin-left: 1rem;
+  border-radius: 10px;
+}
+
+.phone-view .chat-area .proposal {
+  width: 80%;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: -webkit-gradient(linear, left top, right top, from(#e942ff), to(#8838ff));
+  background: linear-gradient(to right, #e942ff, #8838ff);
+  border-radius: 15px 15px 15px 5px;
+}
+
+.phone-view .chat-area .proposal .details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.phone-view .chat-area .proposal .offer {
+  font-size: 1rem;
+  color: #f5f3f7;
+}
+
+.phone-view .chat-area .proposal .price {
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.phone-view .chat-area .proposal .check {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #f5f3f7;
+  margin-right: 1rem;
+}
+
+.phone-view .chat-area form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.phone-view .chat-area form input#message-text {
+  width: 100%;
+  height: 4rem;
+  color: #c6cacd;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  padding-left: 2.5rem;
+}
+
+.phone-view .chat-area form button#submit-btn {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  color: white;
+  background-color: #6e5d7e;
+  border: none;
+  border-radius: 50%;
+  margin-bottom: 0;
+  right: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 700;
+}
+
+/* || Copywriting explaination */
+.main-text {
+  width: 72ch;
+  margin-left: 10rem;
+}
+
+.main-text p {
+  color: #a39daa;
+  margin-top: 2rem;
+  line-height: 2;
+}
+
+/* || Author and Github link */
+.attribution {
+  position: absolute;
+  margin: auto;
+  bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+/* || Adjustments for mobile-friendly design */
+@media screen and (max-width: 900px) {
+  body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 6rem 3rem;
+  }
+  body::before {
+    width: 100vw;
+    left: -50%;
+    height: 50vh;
+  }
+  body::after {
+    height: 30vh;
+    width: 100vw;
+    right: -60%;
+  }
+  .main-text {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 4rem;
+    font-size: 1.6rem;
+    width: 45ch;
+  }
+  .main-text h1 {
+    font-size: 4rem;
+  }
+  .phone-view {
+    margin: 0;
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  .attribution {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-text {
+    width: auto;
+  }
+  body::after {
+    display: none;
+  }
+}
+/*# sourceMappingURL=style.css.map */
