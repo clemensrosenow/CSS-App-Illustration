@@ -1,3 +1,5 @@
+/* Visit style.scss if you want to see the uncompiled code. */
+
 /* || Variable declaration */
 /* || Mixins */
 /* || General styles*/
@@ -14,6 +16,7 @@ html {
 }
 
 body {
+  position: relative;
   width: 100vw;
   min-height: 100vh;
   display: -webkit-box;
@@ -64,7 +67,8 @@ body::before, body::after {
 body::before {
   background: -webkit-gradient(linear, left top, left bottom, from(#e942ff), to(#8838ff));
   background: linear-gradient(to bottom, #e942ff, #8838ff);
-  left: calc( (100vw - 47rem - 72ch) / 2 - 52.4rem);
+  left: calc(
+ (100vw - 47rem - 72ch) / 2 - 52.4rem);
   /* aligns the end of the background with the top phone cutout */
   top: 0;
   border-radius: 0 0 50vw 50vw;
@@ -424,7 +428,7 @@ body::after {
   }
   body::before {
     width: 100vw;
-    left: -50%;
+    left: -50vw;
     height: 50vh;
   }
   body::after {
